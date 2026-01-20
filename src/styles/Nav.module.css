@@ -1,0 +1,56 @@
+/* nav component */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60px;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1;
+  padding: 0 30px;
+}
+
+/* Left side */
+.navLeft {
+  display: flex;
+  align-items: center;
+}
+
+.nav .brand {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.nav .brand h3 {
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 700;
+}
+
+.nav .brand img {
+  width: 32px;
+  margin-right: 10px;
+}
+
+/* account component */
+.account {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 12px;
+}
+
+.account > span:last-child {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav .brand h3 {
+    display: none;
+  }
+}

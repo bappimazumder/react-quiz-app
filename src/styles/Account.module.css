@@ -1,0 +1,11 @@
+/* account component */
+.account {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 12px;
+}
+
+.account > span:last-child {
+  cursor: pointer;
+}
