@@ -6,6 +6,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { Outlet } from "react-router-dom";
 
 import { createContext, useContext, useEffect, useState } from "react";
 import "../firebase";
