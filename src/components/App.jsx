@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
+import RequireAuth from "./RequireAuth";
 
 function App() {
   return (
@@ -17,8 +18,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/result" element={<Result />} />
+            <Route element={<RequireAuth />}>
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/result" element={<Result />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
