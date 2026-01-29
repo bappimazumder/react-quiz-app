@@ -1,14 +1,16 @@
-import image from "../assets/images/Tutorial_01.png";
 import classes from "../styles/Video.module.css";
 
-export default function Video() {
+export default function Video({ title, id, noq }) {
   return (
     <div className={classes.video}>
-      <img src={image} alt="Video Title" />
-      <p>#01 Java - Thread Bangla</p>
+      <img
+        src={`http://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+        alt={title}
+      />
+      <p>{title}</p>
       <div className={classes.qmeta}>
-        <p>10 Questions</p>
-        <p>Score : Not taken yet</p>
+        <p>{noq} Questions</p>
+        <p>Score : {noq * 5}</p>
       </div>
     </div>
   );
