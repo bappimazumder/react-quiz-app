@@ -19,7 +19,10 @@ export default function Videos() {
           next={() => setPage(page + 8)}
         >
           {videos.map((video) => (
-            <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
+            <Link
+              to={`/quiz/${video.youtubeID}?title=${encodeURIComponent(video.title)}`}
+              key={video.youtubeID}
+            >
               <Video
                 title={video.title}
                 id={video.youtubeID}

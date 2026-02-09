@@ -1,7 +1,7 @@
 import { getDatabase, ref, set } from "firebase/database";
 import cloneDeep from "lodash/cloneDeep";
 import { useEffect, useReducer, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../contexts/UseAuth";
 import useQuestions from "../../hooks/useQuestions";
 import Answers from "../Answers";
@@ -45,6 +45,9 @@ export default function Quiz() {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
+  const query = new URLSearchParams(useLocation().search);
+  const videoTitle = query.get("title") || "Unknown Video";
+  console.log(videoTitle);
   useEffect(() => {
     dispatch({
       type: "questions",
@@ -99,7 +102,8 @@ export default function Quiz() {
         <>
           <h1>{qna[currentQuestion].title}</h1>
           <h4>Question can have multiple answers</h4>
-          <Answers input
+          <Answers
+            input
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
           />
@@ -109,7 +113,7 @@ export default function Quiz() {
             progress={percentage}
             submit={submit}
           />
-          <MiniPlayer />
+          <MiniPlayer id={id} title={videoTitle} />
         </>
       )}
     </>
